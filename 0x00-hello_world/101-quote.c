@@ -17,7 +17,7 @@ int main(void)
 	for (i = 0; i < 59; i++)
 
 	{
-		putchar(quote[i]);
+		putchar(quot[i]);
 
 	}
 	return (1);
