@@ -2,10 +2,10 @@
 
 int main(void)
 {
-    char i;  
-    for (i = 48; i < 58; i++)
+    char i = 48;  
+    while (i < 58)
     {
-        putchar(i);
+        putchar(i++);
     }
     putchar('\n'); 
     return (0);

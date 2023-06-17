@@ -2,11 +2,11 @@
 
 int main(void)
 {
-    int i;  
-    for (i = 48; i < 58; i++)
+    int i = 48;  
+    while (i < 58)
     {
         putchar(i);
-	if (i == 57)
+	if (i++ == 57)
 	    continue;
 	putchar(44);
 	putchar(32);

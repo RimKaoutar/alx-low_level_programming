@@ -2,10 +2,10 @@
 
 int main(void)
 {
-    int i;  
-    for (i = 122; i > 96; i--)
+    int i = 122;  
+    while (i > 96)
     {
-        putchar(i);
+        putchar(i--);
     }
     putchar('\n'); 
     return (0);

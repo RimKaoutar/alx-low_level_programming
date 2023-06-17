@@ -2,12 +2,12 @@
 
 int main(void)
 {
-    int i;  
-    for (i = 48; i < 103; i++)
+    int i = 48;  
+    while (i < 103)
     {
-	if (i > 57 && i < 97)
+	if (i > 57 && i++ < 97)
 	    continue;
-        putchar(i);
+        putchar(i++);
     }
     putchar('\n'); 
     return (0);

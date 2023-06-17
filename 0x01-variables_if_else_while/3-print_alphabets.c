@@ -3,10 +3,10 @@
 int main(void)
 {
     char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n";
-    int i;  
-    for (i = 0; i < 53; i++)
+    int i = 0;  
+    while (i < 53)
     {
-        putchar(alpha[i]);
+        putchar(alpha[i++]);
     } 
     return (0);
 }
