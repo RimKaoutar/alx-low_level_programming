@@ -6,32 +6,27 @@
  * Return: Always 0 (Success)
  */
 
+#include <stdio.h>
+
 int main(void)
 {
-	int i = 48, j, k;
+    int i = 48, j;
 
-	while (i < 56)
-	{
-		j = i + 1;
-		k = i + 2;
-		while (j < 57)
-		{
+    while (i < 57)
+    {
+        j = i+1;
+        while (j <= 57)
+        {
+            putchar(i);
+            putchar(j++);
+            if (i == 56 && j == 58)
+                break;
+            putchar(44);
+            putchar(32);
 
-			while (k < 58)
-			{
-				putchar(i);
-				putchar(j);
-				putchar(k++);
+        }
+        i++;
 
-				if (i == 55 && j == 56 && k == 58)
-					break;
-
-				putchar(44);
-				putchar(32);
-			}
-		j++;
-		}
-	i++;
-	}
-	putchar(10);
+    }
+    putchar(10);
 }
