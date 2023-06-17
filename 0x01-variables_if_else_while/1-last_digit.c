@@ -3,14 +3,20 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
 	int n, last_digit;
-	const char* msg;
+	const char *msg;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	
+
 	last_digit = n % 10;
 
 	if (last_digit > 5)
@@ -18,9 +24,9 @@ int main(void)
 	else if (last_digit == 0)
 		msg = "0";
 	else
-		msg = "less than 6 and not 0"; 
+		msg = "less than 6 and not 0";
 
 	printf("Last digit of %d is %d and is %s\n", n, last_digit, msg);
-	
+
 	return (0);
 }
