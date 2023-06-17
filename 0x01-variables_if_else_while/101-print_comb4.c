@@ -8,31 +8,39 @@
 
 int main(void)
 {
-	int i = 48, j, k;
+	int digit1 = 0;
+	int digit2, digit3;
 
-	while (i < 56)
+	while (digit1 <= 9)
 	{
-		j = i + 1;
-		k = i + 2;
-		while (j < 57)
+		digit2 = 0;
+		while (digit2 <= 9)
 		{
-
-			while (k < 58)
+			digit3 = 0;
+			while (digit3 <= 9)
 			{
-				putchar(i);
-				putchar(j);
-				putchar(k++);
+				if (digit1 != digit2 &&
+				    digit1 < digit2 &&
+				    digit2 != digit3 &&
+				    digit2 < digit3)
+				{
+					putchar(digit1 + 48);
+					putchar(digit2 + 48);
+					putchar(digit3 + 48);
 
-				if (i == 55 && j == 56 && k == 58)
-					break;
-
-				putchar(44);
-				putchar(32);
+					if (digit1 + digit2 + digit3 != 24)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+				++digit3;
 			}
-		j++;
+			++digit2;
 		}
-	i++;
+		++digit1;
 	}
-	putchar(10);
+	putchar('\n');
+
 	return (0);
 }
