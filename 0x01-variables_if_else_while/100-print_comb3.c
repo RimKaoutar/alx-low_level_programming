@@ -10,24 +10,24 @@
 
 int main(void)
 {
-    int i = 48, j;
+	int i = 48, j;
 
-    while (i < 57)
-    {
-        j = i+1;
-        while (j <= 57)
-        {
-            putchar(i);
-            putchar(j++);
-            if (i == 56 && j == 58)
-                break;
-            putchar(44);
-            putchar(32);
+	while (i < 57)
+	{
+		j = i + 1;
+		while (j <= 57)
+		{
+			putchar(i);
+			putchar(j++);
+			if (i == 56 && j == 58)
+				break;
+			putchar(44);
+			putchar(32);
 
-        }
-        i++;
+		}
+	i++;
 
-    }
-    putchar(10);
+	}
+	putchar(10);
 	return (0);
 }
