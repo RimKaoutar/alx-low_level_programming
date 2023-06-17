@@ -1,53 +1,40 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
+#include <stdio.h>
+
 int main(void)
 {
-    int i = 0, j;
+	int i, j, k, l;
 
-    while (i <= 99)
-    {
-        j = i + 1;
+	for (i = 0; i <= 99; i++)
+	{
+		for (j = 0; j <= 99; j++)
+		{
+			if (i < j)
+			{
+				putchar((i / 10) + '0');
+				putchar((i % 10) + '0');
+				putchar(32);
+				putchar((j / 10) + '0');
+				putchar((j % 10) + '0');
 
-        while (j <= 99)
-        {
-            if (i < 10)
-            {
-                putchar('0');
-                putchar(i + '0');
-            }
-            else
-            {
-                putchar(i / 10 + '0');
-                putchar(i % 10 + '0');
-            }
+				if (i != 98 || j != 99)
+				{
+					putchar(44);
+					putchar(32);
+				}
+			}
+		}
+	}
 
-            putchar(32);    
+	putchar('\n');
 
-            if (j < 10)
-            {
-                putchar('0');
-                putchar(j + '0');
-            }
-            else
-            {
-                putchar(j / 10 + '0');
-                putchar(j % 10 + '0');
-            }
-
-            if (i != 98 || j != 99)
-            {
-                putchar(44);    
-                putchar(32);   
-            }
-
-            j++;
-        }
-
-        i++;
-    }
-
-    putchar('\n');  
-
-    return 0;
+	return (0);
 }
 
