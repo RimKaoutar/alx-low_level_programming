@@ -1,53 +1,37 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
-    int i = 0, j;
+	int i = 48, j, k;
 
-    while (i <= 99)
-    {
-        j = i + 1;
+	while (i < 56)
+	{
+		j = i + 1;
+		k = i + 2;
+		while (j < 57)
+		{
 
-        while (j <= 99)
-        {
-            if (i < 10)
-            {
-                putchar('0');
-                putchar(i + '0');
-            }
-            else
-            {
-                putchar(i / 10 + '0');
-                putchar(i % 10 + '0');
-            }
+			while (k < 58)
+			{
+				putchar(i);
+				putchar(j);
+				putchar(k++);
 
-            putchar(32);    
+				if (i == 55 && j == 56 && k == 58)
+					break;
 
-            if (j < 10)
-            {
-                putchar('0');
-                putchar(j + '0');
-            }
-            else
-            {
-                putchar(j / 10 + '0');
-                putchar(j % 10 + '0');
-            }
-
-            if (i != 98 || j != 99)
-            {
-                putchar(44);    
-                putchar(32);   
-            }
-
-            j++;
-        }
-
-        i++;
-    }
-
-    putchar('\n');  
-
-    return 0;
+				putchar(44);
+				putchar(32);
+			}
+		j++;
+		}
+	i++;
+	}
+	putchar(10);
 }
-
