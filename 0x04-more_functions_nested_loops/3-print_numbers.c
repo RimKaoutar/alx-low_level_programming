@@ -7,12 +7,12 @@
 
 void print_numbers(void)
 {
-        int c = 48;
+	int c = 48;
 
-        while (c < 91)
-        {
-                _putchar(c++);
-        }
+	while (c < 58)
+	{
+		_putchar(c++);
+	}
 	_putchar('\n');
 
 }
