@@ -7,7 +7,7 @@
 */
 
 
-void _puts(char *str)
+void _puts2(char *str)
 {
 	while (*str != '\0')
 	{
