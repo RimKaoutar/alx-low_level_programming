@@ -5,26 +5,24 @@
  * @s: parameter
  * Return: encoded parameter
  */
-
 char *rot13(char *s)
 {
-	int i;
-	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int count = 0, i;
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	while (*s)
+	while (*(s + count) != '\0')
 	{
-		i = 0;
-		while (i < 52)
+
+		for (i = 0; i < 52; i++)
 		{
-			if (*s == alpha[i])
+			if (*(s + count) == alphabet[i])
 			{
-				*s = rot13[i];
+				*(s + count) = rot13[i];
 				break;
 			}
-			i++;
 		}
-		s++;
+		count++;
 	}
 
 	return (s);
