@@ -19,11 +19,11 @@ char *_strncpy(char *dest, char *src, int n)
 		dest[len] = src[len];
 
 		if (src[len] == '\0')
-			while(len < n)
-				dest[len++] = '\0'; 
 			break;
 
 		len++;
 	}
+	while (i < n)
+		dest[i++] = '\0';
 	return (dest);
 }
