@@ -11,7 +11,7 @@
 
 char *_strchr(char *s, char c)
 {
-	char *occ = '\0';
+	char *occ = NULL;
 
 	while (*s)
 	{
