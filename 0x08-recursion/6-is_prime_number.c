@@ -11,7 +11,6 @@ int is_prime_number(int n)
 {
 	if (n <= 1)
 		return (0);
-	n /= 2;
 	return (is_prime(n, 2));
 }
 
@@ -25,10 +24,10 @@ int is_prime_number(int n)
 
 int is_prime(int n, int start)
 {
-	if (n % start == 0 || start > n)
+	if (n % start == 0 || start > n / 2)
 		return (0);
 	else if (n % start != 0 && start < n)
-		return (1);
-	else
 		return (is_prime(n, start + 1));
+	else
+		return (1);
 }
