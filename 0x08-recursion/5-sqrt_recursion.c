@@ -10,7 +10,7 @@
 int square_root(int sqrt, int base)
 {
 	if (sqrt * sqrt == base)
-		return (sqrt)
+		return (sqrt);
 	else if (sqrt * sqrt > base)
 		return (-1);
 	else
@@ -26,5 +26,5 @@ int square_root(int sqrt, int base)
 
 int _sqrt_recursion(int n)
 {
-	 square_root(1, n);
+	return (square_root(1, n));
 }
