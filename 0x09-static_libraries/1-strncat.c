@@ -1,26 +1,28 @@
 #include "main.h"
 
 /**
- * _strncat - a function that concatenates two strings.
+ * _strncat - append a specified number of characters from
+ * the src string to the end of the dest string.
+ * @dest: Its purpose is to Input the destination
+ * @src: Its purpose is to Input the source
+ * @x: We mean the number of items
  *
- * @dest: pointer to destination input
- * @src: pointer to source input
- * @n: most number of bytes from @src
- *
- * Return: @dest
-*/
-
-char *_strncat(char *dest, char *src, int n)
+ * Return: We mean a destination
+ */
+char *_strncat(char *dest, char *src, int x)
 {
-	int len_dest = 0, len_src = 0;
+	int j;
+	int i;
 
-	while (dest[len_dest] != '\0')
+	for (j = 0; dest[j] != '\0'; j++)
 	{
-		len_dest++;
+		continue;
 	}
-	while (len_src < n && src[len_src])
+	for (i = 0; dest[i] != '\0' && i < x; i++)
 	{
-		dest[len_dest++] = src[len_src++];
+		dest[j] = src[i];
+		j++;
 	}
+	dest[j] = '\0';
 	return (dest);
 }

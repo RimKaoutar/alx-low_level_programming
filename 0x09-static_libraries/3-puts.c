@@ -1,16 +1,18 @@
 #include "main.h"
 
 /**
- * _puts - writes the string str and a trailing newline to stdout.
- * @str: string.
-*/
-
+ * _puts - Print a string to standard output
+ *
+ * @str: input parameter
+ */
 
 void _puts(char *str)
 {
-	while (*str != '\0')
+	int j;
+
+	for (j = 0; str[j] != '\0'; j++)
 	{
-		_putchar(*str++);
+		_putchar(str[j]);
 	}
 	_putchar('\n');
 }
