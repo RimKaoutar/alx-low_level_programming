@@ -7,8 +7,6 @@
  */
 int main(void)
 {
-    print_strings(", ", 2, "Jay", "Django");
-    print_strings("", 2, "Jay", "Django");
-    print_strings(", ", 4, "Jay", "Django", NULL, "batata");
+    print_all("ceis", 'B', 3, "stSchool");
     return (0);
 }
