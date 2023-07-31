@@ -4,7 +4,7 @@ void before(void) __attribute__((constructor));
 
 /**
  * before - Prints a string before the
- * 	    main function is executed.
+ * main function is executed.
  */
 void before(void)
 {
