@@ -7,6 +7,9 @@ void free_listint2(listint_t **head)
 {
 	listint_t *gone;
 
+	if (head == NULL)
+		return;
+	
 	while (*head)
 	{
 		gone = *head;
