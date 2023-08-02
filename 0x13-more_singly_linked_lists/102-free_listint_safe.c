@@ -3,27 +3,46 @@
  * free_listint_safe -  that frees a listint_t list.
  * @h: the input list
  * Return: the number nodes
-*/
+ */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t size = 0;
-	listint_t *temp;
+	listint_t *slow, *fast, *temp;
+	size_t count = 0;
 
-	while (*h)
+	if (h == NULL)
+		return (0);
+
+	slow = *h;
+	fast = *h;
+
+	while (fast && fast->next)
 	{
-		size++;
-		if (*h <= (*h)->next)
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast)
 		{
-			temp = (*h)->next;
-			free(*h);
-			*h = temp;
-		}
-		else
-		{
-			free(*h);
-			*h = NULL;
-			break;
+			slow = *h;
+			while (slow != fast)
+			{
+				slow = slow->next;
+				fast = fast->next;
+			}
+
+			temp = fast;
+			while (temp->next != fast)
+				temp = temp->next;
+			temp->next = NULL;
 		}
 	}
-	return (size);
+
+	while (*h != NULL)
+	{
+		temp = *h;
+		*h = (*h)->next;
+		free(temp);
+		count++;
+	}
+
+	return (count);
 }
