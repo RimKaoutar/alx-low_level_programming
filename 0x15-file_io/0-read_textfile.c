@@ -29,6 +29,8 @@ size_t read_textfile(const char *filename, size_t letters)
 
 	close(fd);
 	free(data);
+	if (num == -1)
+		return (0);
 
 	return (num);
 
