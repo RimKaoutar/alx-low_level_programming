@@ -14,7 +14,7 @@ size_t read_textfile(const char *filename, size_t letters)
 	char *data;
 
 	if (!filename)
-		return(0);
+		return (0);
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -22,14 +22,14 @@ size_t read_textfile(const char *filename, size_t letters)
 
 	data = malloc(letters);
 	if (!data)
-		return(0);
+		return (0);
 
 	n = read(fd, data, letters);
 	num = write(STDOUT_FILENO, data, n);
 
 	close(fd);
 	free(data);
-	if (num == (size_t)-1)
+	if (num == (size_t) -1)
 		return (0);
 
 	return (num);
