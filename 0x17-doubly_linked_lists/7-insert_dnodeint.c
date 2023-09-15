@@ -1,66 +1,77 @@
 #include "lists.h"
 
-/**
- * dlistint_len - computing the length of a double linked list
- * @h: the head
- * Return: the size of the list
- */
-
-size_t dlistint_len(const dlistint_t *h)
-{
-	const dlistint_t *curr = h;
-	size_t size = 0;
-
-	while (curr != NULL)
-	{
-		curr = curr->next;
-		size++;
-	}
-
-	return (size);
-}
+void insert_middle(dlistint_t ***h, dlistint_t **new_node, dlistint_t **curr);
 
 /**
- * insert_dnodeint_at_index - insert node at index
+ * insert_dnodeint_at_index - inserts a node at a given index of a list
+ * @h: Pointer to first node in the list.
+ * @idx: Index at which to insert the node, starting from 0.
+ * @n: Data to be assigned to new node.
  *
- * @h: the head
- * @idx: index to insert at
- * @n: data n for the new node
- * Return: pointer the newly created node
+ * Return: Address of new node, or NULL if it can't be added.
  */
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
+	dlistint_t *curr = *h;
 	dlistint_t *new_node;
-	dlistint_t *curr, *next;
+	unsigned int index = 0;
 
-	if (h == NULL || idx > dlistint_len(*h))
+	if (!h) /* Check if list is empty */
 		return (NULL);
 
 	if (idx == 0)
-		return (add_dnodeint(h, n));
-
-	if (idx == dlistint_len(*h))
-		return (add_dnodeint_end(h, n));
-
-	curr = *h;
-	while (idx > 1)
-	{
-		curr = curr->next;
-		idx--;
+	{ /* Add node at the beginning if index is 0 */
+		new_node = add_dnodeint(h, n);
+		return (new_node);
 	}
 
-	next = curr->next;
-
 	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	if (!new_node)
 		return (NULL);
 
 	new_node->n = n;
-	new_node->prev = curr;
-	new_node->next = next;
-	curr->next = new_node;
-	next->prev = new_node;
 
-	return (new_node);
+	while (curr)
+	{
+		if (index == idx)
+		{ /* Find the node that is currently at the specified index */
+			insert_middle(&h, &new_node, &curr);
+			return (new_node);
+		}
+
+		curr = curr->next;
+		index++;
+	}
+
+	if (index == idx)
+	{ /* Add node at end if index is the last index of the list */
+		new_node = add_dnodeint_end(h, n);
+		return (new_node);
+	}
+
+	free(new_node);
+	return (NULL);
+}
+
+/**
+ * insert_middle - inserts a node at a given index in the middle of a list
+ * @h: Pointer to first node in the list.
+ * @new_node: New node to be inserted at index.
+ * @curr: Node that is currently at that index.
+ *
+ * Return: Nothing.
+ */
+
+void insert_middle(dlistint_t ***h, dlistint_t **new_node, dlistint_t **curr)
+{
+	(*new_node)->next = *curr;
+	(*new_node)->prev = (*curr)->prev;
+
+	if ((*curr)->prev)
+		(*curr)->prev->next = *new_node;
+	else /* If the current node is the first node */
+		**h = *new_node; /* Update the head of the list */
+
+	(*curr)->prev = *new_node;
 }
